@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+  --color-label: #ffffff;
+  --color-label-2: rgba(235, 235, 245, 0.6);
+  --color-label-3: rgba(235, 235, 245, 0.3);
+  --color-separator: rgba(84, 84, 88, 0.6);
+  --color-sys-green: #30d158;
+  --color-sys-teal: #64d2ff;
+  --color-sys-yellow: #ffd60a;
+  --color-sys-orange: #ff9f0a;
+  --color-sys-indigo: #5e5ce6;
+}
+
+body {
+  @apply bg-[#05070f] text-white antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes twinkle { 0%, 100% { opacity: 0.25 } 50% { opacity: 0.9 } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+@keyframes sheet { from { transform: translateY(100%) } to { transform: none } }
+.animate-rise { animation: rise 0.35s ease-out both }
+.animate-sheet { animation: sheet 0.32s cubic-bezier(0.2, 0.9, 0.3, 1) both }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise, .animate-sheet { animation: none }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none }
+.no-scrollbar { scrollbar-width: none }
